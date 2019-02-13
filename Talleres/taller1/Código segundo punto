@@ -1,0 +1,26 @@
+using namespace std;
+#include <iostream>
+#include <conio.h>
+#include <math.h>
+int main()
+{
+	int n,d,i, j;
+	i= 0; j=0;
+	cout<<"Ingrese n = ";
+	cin>>n;
+	cout<<"d= ";
+	int operaciones = 0;
+	while(n>0)
+	{
+		
+		d = n % 2; 
+		i++;
+		operaciones++;
+		n = n/2; 
+		j++;
+		operaciones++;
+		cout<<d;
+	}
+	cout<<endl;
+	cout<<"operaciones ="<<operaciones;
+}
