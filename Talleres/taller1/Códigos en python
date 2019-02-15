@@ -1,0 +1,27 @@
+def poli(x):
+funcion = pow(x, 2) - (3 * x) - 4
+return (funcion)
+#MAIN PROGRAM
+a = float(input('Por favor introducir valor de limite innferior(a): '))
+b = float(input('Por favor introducir valor de limite superior(b): '))
+E = float(input('Por favpr ingrese la precision (E): '))
+x1 = a
+#Valor a incrementar
+d = (b-a)/10
+x0 = x1
+x1 = x1 + d
+noRaiz = False
+while abs(d) >= E:
+if poli(x0)*poli(x1) < 0:
+x1 = x1 - d
+d = d/10
+x1 = x1 + d
+else:
+x0 = x1
+x1 = x1 + d
+if x1 > b:
+print('X1: ', x1, 'b: ', b)
+print('La funcion ha superado el limite superior establecido en el rango')
+noRaiz = True
+break
+print('La raiz es :', x1)
