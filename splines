@@ -1,0 +1,31 @@
+require(PolynomF)
+xi=c(0,.5,1,2,3,4)
+yi=c(0,.93,1,1.1,1.15,1.2)
+polyAjuste = poly.calc(xi,yi)
+polyAjuste
+#polyAjuste
+plot(xi,yi, pch = 19, cex=1.5, col= "red")
+curve(polyAjuste,add=T,lty=2, lwd=4) # lwd = grosor, lty = tipo
+# Usando trazadores cúbicos
+splineAjuste=splinefun(xi,yi)
+splineAjuste
+# frontera natural
+curve(splineAjuste,add=T,lty=1,lwd=4, col= "blue")
+# splineAjuste.mono = splinefun(xi,yi,method="mono")#curva monótona
+# curve(splineAjuste.mono,add=T,lty=1)
+legend("bottomright",legend=c("Interpolante","Trazador"), lty=c(2:1),bty="n")
+
+
+
+
+f = function(x) 1/(1+25*x^2)
+n = 50
+x = c(0,.5,1,2,3,4)
+y = c(0,.93,1,1.1,1.15,1.2)
+splinesRunge = splinefun(x,y, method="natural")
+splinesRunge(4)
+
+ecuacion = splinefunH(x, y, x) 
+ecuacion
+plot(x,y)
+curve(splinesRunge(x), add=TRUE, col=2, n=1001)
