@@ -1,0 +1,14 @@
+require(deSolve)
+fp = function(t,y,parms)
+{
+  s = -1.668*10^(-9)*y^4 + 2.6880
+  return(list(s))
+}
+ 
+  tis = seq(0,200,200/20)
+  sol = ode(c(180), tis, fp, parms = NULL, method = "euler")
+  
+  tabla = cbind(tis,sol[,2])
+  colnames(tabla) = c("ti","ti Euler")
+  tabla
+  plot(tis,sol[,2], main = "Metodo de Euler")
