@@ -1,0 +1,23 @@
+require(PolynomF)
+xt = function(t) 2/3 * cos(8*t) - 1-6 * sin(8*t)
+cont = 0
+
+while(cont <= 60)
+{
+  xi[cont] = cont
+  yi[cont] = xt(cont)
+  cont = cont + 1
+}
+yi[0:60]
+xi[0:60]
+#polyAjuste
+plot(xi,yi, pch = 19, cex=1.5, col= "red")
+ # lwd = grosor, lty = tipo
+# Usando trazadores cúbicos
+splineAjuste=splinefun(xi,yi)
+splineAjuste
+# frontera natural
+curve(splineAjuste,add=T,lty=1,lwd=3, col= "blue")
+# splineAjuste.mono = splinefun(xi,yi,method="mono")#curva monótona
+# curve(splineAjuste.mono,add=T,lty=1)
+legend("bottomright",legend=c("Interpolante","Trazador"), lty=c(2:1),bty="n")
